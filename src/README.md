@@ -1,13 +1,14 @@
 # furima-app
 
-coachtechフリマアプリです。
+フリマアプリです。
 
 ## 開発環境
 
-- 商品一覧（トップ）: http://localhost/
-- ログイン: http://localhost/login
-- 会員登録: http://localhost/register
-- phpMyAdmin: http://localhost:8080/
+- **商品一覧（トップ）**: http://localhost/
+- **ログイン**: http://localhost/login
+- **会員登録**: http://localhost/register
+- **メール確認 (MailHog)**: http://localhost:8025/
+- **データベース管理 (phpMyAdmin)**: http://localhost:8080/
 
 ## 使用技術（実行環境）
 
@@ -15,6 +16,7 @@ coachtechフリマアプリです。
 - Laravel 8.x
 - MySQL 8.0.26
 - nginx 1.21.1
+- MailHog (メールテスト用)
 
 ## 環境構築
 
