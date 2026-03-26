@@ -1,63 +1,64 @@
-# furima-app
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-フリマアプリです。
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-## 開発環境
+## About Laravel
 
-- **商品一覧（トップ）**: http://localhost/
-- **ログイン**: http://localhost/login
-- **会員登録**: http://localhost/register
-- **メール確認 (MailHog)**: http://localhost:8025/
-- **データベース管理 (phpMyAdmin)**: http://localhost:8080/
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## 使用技術（実行環境）
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-- PHP 8.1
-- Laravel 8.x
-- MySQL 8.0.26
-- nginx 1.21.1
-- MailHog (メールテスト用)
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## 環境構築
+## Learning Laravel
 
-```bash
-# 1. リポジトリをクローン
-git clone git@github.com:yoko-sakamaki/furima-app.git
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-# 2. プロジェクトに移動
-cd furima-app
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-# 3. コンテナ起動
-docker-compose up -d --build
+## Laravel Sponsors
 
-# 4. コンテナ内に入る
-docker-compose exec php bash
-```
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-## Laravel環境構築 コンテナ内操作
+### Premium Partners
 
-```bash
-# 1. ライブラリのインストール
-composer install
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
 
-# 2. 環境設定ファイルの作成
-cp .env.example .env
+## Contributing
 
-# 3. アプリケーションキーの生成
-php artisan key:generate
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-# 4. ストレージのシンボリックリンク作成（商品画像・プロフィール画像用）
-php artisan storage:link
+## Code of Conduct
 
-# 5. データベースのマイグレーション及びシーディング
-php artisan migrate:fresh --seed
-```
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## 動作確認用ログイン情報
+## Security Vulnerabilities
 
-- メールアドレス: test@example.com
-- パスワード: password123
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## ER図
+## License
 
-![ER図](./src/database/er_diagram.png)
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
