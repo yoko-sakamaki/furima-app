@@ -1,0 +1,16 @@
+:root {
+  /* カラー */
+  --color-primary: #FF5555;
+  --color-text: #000000;
+  --color-text-muted: #5F5F5F;
+  --color-tab-active: #FF0000;
+  --color-link: #0073CC;
+  --color-white: #FFFFFF;
+  --color-bg: #FFFFFF;
+
+  /* ボタン */
+  --btn-radius: 4px;
+
+  /* フォント */
+  --font-size-base: 16px;
+}
