@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class ConditionMaster extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    protected $fillable = ['name'];
+
+    // この状態の商品
+    public function items()
+    {
+        return $this->hasMany(Item::class, 'condition_id');
+    }
 }

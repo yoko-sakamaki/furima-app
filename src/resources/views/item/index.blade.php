@@ -8,9 +8,9 @@
 <div class="item-list">
     <div class="item-list__tabs">
         <a class="item-list__tab {{ request('tab') !== 'mylist' ? 'item-list__tab--active' : '' }}"
-            href="/">おすすめ</a>
+            href="/?search={{ request('search') }}">おすすめ</a>
         <a class="item-list__tab {{ request('tab') === 'mylist' ? 'item-list__tab--active' : '' }}"
-            href="/?tab=mylist">マイリスト</a>
+            href="/?tab=mylist&search={{ request('search') }}">マイリスト</a>
     </div>
 
     <div class="item-list__grid">
