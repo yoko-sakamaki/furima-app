@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', [ItemController::class, 'index']);
+Route::get('/item/{id}', [ItemController::class, 'show']);
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', function () {
@@ -19,4 +22,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage', [UserController::class, 'index']);
     Route::get('/mypage/profile', [UserController::class, 'edit']);
     Route::post('/mypage/profile', [UserController::class, 'update']);
+    Route::post('/like/{id}', [LikeController::class, 'toggle']);
+    Route::post('/comment/{id}', [CommentController::class, 'store']);
 });

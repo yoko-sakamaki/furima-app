@@ -1,0 +1,83 @@
+.mypage {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+.mypage__profile {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.mypage__profile-image img,
+.mypage__profile-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #ccc;
+}
+
+.mypage__profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.mypage__name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.mypage__tabs {
+    display: flex;
+    gap: 40px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 40px;
+}
+
+.mypage__tab {
+    padding: 16px 0;
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-base);
+}
+
+.mypage__tab--active {
+    color: var(--color-tab-active);
+    border-bottom: 2px solid var(--color-tab-active);
+}
+
+.item-list__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.item-card {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.item-card__image {
+    position: relative;
+    aspect-ratio: 1;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.item-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-card__name {
+    margin-top: 8px;
+    font-size: 14px;
+}
