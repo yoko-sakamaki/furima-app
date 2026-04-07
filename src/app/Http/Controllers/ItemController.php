@@ -33,21 +33,4 @@ class ItemController extends Controller
 
         return view('item.index', compact('items', 'search'));
     }
-
-    public function show($id)
-    {
-        $item = Item::with([
-            'user',
-            'condition',
-            'categories',
-            'likes',
-            'comments.user',
-        ])->findOrFail($id);
-
-        $isLiked = auth()->check()
-            ? $item->likes->contains('user_id', auth()->id())
-            : false;
-
-        return view('item.show', compact('item', 'isLiked'));
-    }
 }
