@@ -34,7 +34,7 @@
                 <a class="header__nav-link" href="/register">会員登録</a>
             @endauth
             <a href="/sell">
-                <button class="btn-outline">出品</button>
+                <button class="btn-sell">出品</button>
             </a>
         </nav>
     </header>
