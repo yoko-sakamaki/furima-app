@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Category;
+use App\Models\ConditionMaster;
+use App\Http\Requests\ExhibitionRequest;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -32,5 +35,51 @@ class ItemController extends Controller
         }
 
         return view('item.index', compact('items', 'search'));
+    }
+
+    public function show($id)
+    {
+        $item = Item::with([
+            'user',
+            'condition',
+            'categories',
+            'likes',
+            'comments.user',
+        ])->findOrFail($id);
+
+        $isLiked = auth()->check()
+            ? $item->likes->contains('user_id', auth()->id())
+            : false;
+
+        return view('item.show', compact('item', 'isLiked'));
+    }
+
+    public function create()
+    {
+        $categories = Category::all();
+        $conditions = ConditionMaster::all();
+
+        return view('item.create', compact('categories', 'conditions'));
+    }
+
+    public function store(ExhibitionRequest $request)
+    {
+        $path = $request->file('image')
+            ->store('items', 'public');
+
+        $item = Item::create([
+            'user_id' => auth()->id(),
+            'condition_id' => $request->condition_id,
+            'name' => $request->name,
+            'brand' => $request->brand,
+            'description' => $request->description,
+            'price' => $request->price,
+            'image' => $path,
+            'is_sold' => false,
+        ]);
+
+        $item->categories()->attach($request->categories);
+
+        return redirect('/');
     }
 }
