@@ -15,7 +15,7 @@ Route::middleware('guest')->group(function () {
     });
     Route::get('/login', function () {
         return view('auth.login');
-    });
+    })->name('login');
 });
 
 Route::middleware('auth')->group(function () {
@@ -24,4 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/mypage/profile', [UserController::class, 'update']);
     Route::post('/like/{id}', [LikeController::class, 'toggle']);
     Route::post('/comment/{id}', [CommentController::class, 'store']);
+    Route::get('/sell', [ItemController::class, 'create']);
+    Route::post('/sell', [ItemController::class, 'store']);
 });
