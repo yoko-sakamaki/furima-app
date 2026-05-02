@@ -5,6 +5,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PurchaseController;
 
 Route::get('/', [ItemController::class, 'index']);
 Route::get('/item/{id}', [ItemController::class, 'show']);
@@ -26,4 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/comment/{id}', [CommentController::class, 'store']);
     Route::get('/sell', [ItemController::class, 'create']);
     Route::post('/sell', [ItemController::class, 'store']);
+    Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'editAddress']);
+    Route::post('/purchase/address/{item_id}', [PurchaseController::class, 'updateAddress']);
+    Route::get('/purchase/{item_id}', [PurchaseController::class, 'index']);
+    Route::post('/purchase/{item_id}', [PurchaseController::class, 'store']);
 });
