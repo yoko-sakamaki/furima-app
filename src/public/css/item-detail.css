@@ -11,13 +11,13 @@
 }
 
 .item-detail__image {
-    width: 50%;
+    width: 600px;
     flex-shrink: 0;
 }
 
 .item-detail__image img {
-    width: 100%;
-    aspect-ratio: 1;
+    width: 600px;
+    height: 600px;
     object-fit: cover;
     border-radius: 4px;
 }
@@ -27,9 +27,8 @@
 }
 
 .item-detail__name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 8px;
+    font-size: 45px;
+    font-weight: 700;
 }
 
 .item-detail__brand {
@@ -60,12 +59,13 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-direction: column;
 }
 
 .item-detail__like img,
 .item-detail__comment-count img {
-    width: 24px;
-    height: 24px;
+    width: 42px;
+    height: 42px;
 }
 
 .like-button {
@@ -75,6 +75,22 @@
     padding: 0;
 }
 
+.item-detail__purchase {
+    margin-bottom: 24px;
+}
+
+.item-detail__purchase .btn-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.item-detail__purchase button.btn-primary {
+    width: 100%;
+    cursor: not-allowed;
+}
+
 .item-detail__description {
     margin: 32px 0;
     padding-top: 32px;
@@ -82,19 +98,18 @@
 }
 
 .item-detail__description h2 {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 36px;
+    font-weight: 700;
     margin-bottom: 16px;
 }
 
 .item-detail__meta {
     padding-top: 32px;
-    border-top: 1px solid #eee;
 }
 
 .item-detail__meta h2 {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 36px;
+    font-weight: 700;
     margin-bottom: 16px;
 }
 
@@ -103,7 +118,6 @@
     align-items: center;
     gap: 24px;
     padding: 16px 0;
-    border-bottom: 1px solid #eee;
 }
 
 .item-detail__meta-label {
@@ -120,19 +134,20 @@
 
 .item-detail__category {
     padding: 4px 12px;
-    border: 1px solid #ccc;
+    background: #D9D9D9;
+    border: none;
     border-radius: 20px;
     font-size: 14px;
 }
 
 .item-detail__comments {
-    border-top: 2px solid #eee;
     padding-top: 40px;
 }
 
 .item-detail__comments h2 {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 36px;
+    font-weight: 700;
+    color: #5F5F5F;
     margin-bottom: 24px;
 }
 
@@ -167,7 +182,8 @@
 }
 
 .item-detail__comment-form h2 {
-    font-size: 20px;
+    font-size: 28px;
+    color: #000000;
     font-weight: bold;
     margin-bottom: 16px;
     padding-top: 40px;

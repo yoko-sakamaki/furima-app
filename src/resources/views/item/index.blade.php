@@ -5,14 +5,16 @@
 @endsection
 
 @section('content')
-<div class="item-list">
+<div class="item-list__tabs-wrapper">
     <div class="item-list__tabs">
         <a class="item-list__tab {{ request('tab') !== 'mylist' ? 'item-list__tab--active' : '' }}"
             href="/?search={{ request('search') }}">おすすめ</a>
         <a class="item-list__tab {{ request('tab') === 'mylist' ? 'item-list__tab--active' : '' }}"
             href="/?tab=mylist&search={{ request('search') }}">マイリスト</a>
     </div>
+</div>
 
+<div class="item-list">
     <div class="item-list__grid">
         @foreach($items as $item)
         <a class="item-card" href="/item/{{ $item->id }}">

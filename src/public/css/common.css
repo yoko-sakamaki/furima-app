@@ -13,7 +13,8 @@ body {
 /* ヘッダー */
 .header {
   background: var(--color-text);
-  padding: 16px 40px;
+  height:80px;
+  padding-left:40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,7 +24,7 @@ body {
   color: var(--color-white);
   text-decoration: none;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 0px;
 }
 
 .header__search input {
