@@ -19,15 +19,19 @@
             <a href="/mypage/profile" class="btn-outline">プロフィールを編集</a>
         </div>
     </div>
+</div>
 
+<div class="mypage__tabs-wrapper">
     <div class="mypage__tabs">
         <a class="mypage__tab {{ request('page') !== 'buy' ? 'mypage__tab--active' : '' }}"
             href="/mypage?page=sell">出品した商品</a>
         <a class="mypage__tab {{ request('page') === 'buy' ? 'mypage__tab--active' : '' }}"
             href="/mypage?page=buy">購入した商品</a>
     </div>
+</div>
 
-    <div class="item-list__grid">
+<div class="mypage">
+    <div class="mypage__grid">
         @if(request('page') === 'buy')
             @foreach($purchasedItems as $purchase)
                 <a class="item-card" href="/item/{{ $purchase->item->id }}">
