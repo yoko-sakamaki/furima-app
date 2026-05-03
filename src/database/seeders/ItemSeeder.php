@@ -41,7 +41,7 @@ class ItemSeeder extends Seeder
                 'price' => 300,
                 'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/iLoveIMG+d.jpg',
                 'is_sold' => false,
-                'categories' => [3],
+                'categories' => [10],
             ],
             [
                 'user_id' => 3,
@@ -52,7 +52,7 @@ class ItemSeeder extends Seeder
                 'price' => 4000,
                 'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Leather+Shoes+Product+Photo.jpg',
                 'is_sold' => false,
-                'categories' => [1],
+                'categories' => [1, 5],
             ],
             [
                 'user_id' => 3,
@@ -85,7 +85,7 @@ class ItemSeeder extends Seeder
                 'price' => 3500,
                 'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Purse+fashion+pocket.jpg',
                 'is_sold' => false,
-                'categories' => [1],
+                'categories' => [1, 4],
             ],
             [
                 'user_id' => 3,
@@ -96,7 +96,7 @@ class ItemSeeder extends Seeder
                 'price' => 500,
                 'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Tumbler+souvenir.jpg',
                 'is_sold' => false,
-                'categories' => [3],
+                'categories' => [4, 5, 10],
             ],
             [
                 'user_id' => 3,
@@ -107,7 +107,7 @@ class ItemSeeder extends Seeder
                 'price' => 4000,
                 'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Waitress+with+Coffee+Grinder.jpg',
                 'is_sold' => false,
-                'categories' => [3],
+                'categories' => [10],
             ],
             [
                 'user_id' => 3,
@@ -118,7 +118,7 @@ class ItemSeeder extends Seeder
                 'price' => 2500,
                 'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/%E5%A4%96%E5%87%BA%E3%83%A1%E3%82%A4%E3%82%AF%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%82%BB%E3%83%83%E3%83%88.jpg',
                 'is_sold' => false,
-                'categories' => [1],
+                'categories' => [1, 4],
             ],
         ];
 

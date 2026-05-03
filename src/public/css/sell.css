@@ -179,3 +179,13 @@
     font-size: 14px;
     margin-top: 4px;
 }
+
+.sell__price-field::-webkit-inner-spin-button,
+.sell__price-field::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.sell__price-field {
+    -moz-appearance: textfield;
+}
