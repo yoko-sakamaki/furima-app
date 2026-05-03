@@ -5,7 +5,7 @@
 }
 
 .sell__title {
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 40px;
@@ -16,7 +16,7 @@
 }
 
 .sell__section-title {
-    font-size: 18px;
+    font-size: var(--font-size-base);
     font-weight: bold;
     margin-bottom: 24px;
 }
@@ -63,12 +63,12 @@
     color: var(--color-primary);
     border: 2px solid var(--color-primary);
     border-radius: 10px;
-    font-size: var(--font-size-base);
+    font-size: 16px;
     background: var(--color-white);
 }
 
 .sell__form-group {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
 }
 
 .sell__label {
@@ -136,7 +136,7 @@
     border: 2px solid var(--color-primary);
     border-radius: 20px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
     color: var(--color-primary);
     background: var(--color-white);
 }

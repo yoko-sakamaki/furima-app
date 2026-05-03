@@ -19,7 +19,7 @@
         @foreach($items as $item)
         <a class="item-card" href="/item/{{ $item->id }}">
             <div class="item-card__image">
-                <img src="{{ $item->image }}" alt="{{ $item->name }}">
+                <img src="{{ $item->image && !str_starts_with($item->image, 'http') ? asset('storage/' . $item->image) : $item->image }}" alt="{{ $item->name }}">
                 @if($item->is_sold)
                     <span class="item-card__sold">Sold</span>
                 @endif

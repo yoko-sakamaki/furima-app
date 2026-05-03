@@ -36,7 +36,7 @@
             @foreach($purchasedItems as $purchase)
                 <a class="item-card" href="/item/{{ $purchase->item->id }}">
                     <div class="item-card__image">
-                        <img src="{{ $purchase->item->image }}" alt="{{ $purchase->item->name }}">
+                        <img src="{{ $purchase->item->image && !str_starts_with($purchase->item->image, 'http') ? asset('storage/' . $purchase->item->image) : $purchase->item->image }}" alt="{{ $purchase->item->name }}">
                     </div>
                     <p class="item-card__name">{{ $purchase->item->name }}</p>
                 </a>
@@ -45,7 +45,7 @@
             @foreach($sellingItems as $item)
                 <a class="item-card" href="/item/{{ $item->id }}">
                     <div class="item-card__image">
-                        <img src="{{ $item->image }}" alt="{{ $item->name }}">
+                        <img src="{{ $item->image && !str_starts_with($item->image, 'http') ? asset('storage/' . $item->image) : $item->image }}" alt="{{ $item->name }}">
                     </div>
                     <p class="item-card__name">{{ $item->name }}</p>
                 </a>

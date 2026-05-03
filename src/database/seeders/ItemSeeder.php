@@ -11,7 +11,7 @@ class ItemSeeder extends Seeder
     {
         $items = [
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 1,
                 'name' => '腕時計',
                 'brand' => 'Rolax',
@@ -22,7 +22,7 @@ class ItemSeeder extends Seeder
                 'categories' => [1, 2],
             ],
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 2,
                 'name' => 'HDD',
                 'brand' => '西芝',
@@ -33,7 +33,7 @@ class ItemSeeder extends Seeder
                 'categories' => [2],
             ],
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 3,
                 'name' => '玉ねぎ3束',
                 'brand' => null,
@@ -44,7 +44,7 @@ class ItemSeeder extends Seeder
                 'categories' => [3],
             ],
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 4,
                 'name' => '革靴',
                 'brand' => null,
@@ -55,7 +55,7 @@ class ItemSeeder extends Seeder
                 'categories' => [1],
             ],
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 1,
                 'name' => 'ノートPC',
                 'brand' => null,
@@ -66,7 +66,7 @@ class ItemSeeder extends Seeder
                 'categories' => [2],
             ],
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 2,
                 'name' => 'マイク',
                 'brand' => null,
@@ -77,7 +77,7 @@ class ItemSeeder extends Seeder
                 'categories' => [2],
             ],
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 3,
                 'name' => 'ショルダーバッグ',
                 'brand' => null,
@@ -88,7 +88,7 @@ class ItemSeeder extends Seeder
                 'categories' => [1],
             ],
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 4,
                 'name' => 'タンブラー',
                 'brand' => null,
@@ -99,7 +99,7 @@ class ItemSeeder extends Seeder
                 'categories' => [3],
             ],
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 1,
                 'name' => 'コーヒーミル',
                 'brand' => 'Starbacks',
@@ -110,7 +110,7 @@ class ItemSeeder extends Seeder
                 'categories' => [3],
             ],
             [
-                'user_id' => 1,
+                'user_id' => 3,
                 'condition_id' => 2,
                 'name' => 'メイクセット',
                 'brand' => null,

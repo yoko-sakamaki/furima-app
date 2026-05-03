@@ -8,7 +8,7 @@
 <div class="item-detail">
     <div class="item-detail__main">
         <div class="item-detail__image">
-            <img src="{{ $item->image }}" alt="{{ $item->name }}">
+            <img src="{{ $item->image && !str_starts_with($item->image, 'http') ? asset('storage/' . $item->image) : $item->image }}" alt="{{ $item->name }}">
         </div>
 
         <div class="item-detail__info">
