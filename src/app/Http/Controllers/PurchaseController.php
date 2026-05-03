@@ -13,6 +13,12 @@ class PurchaseController extends Controller
     {
         $item = Item::findOrFail($item_id);
         $user = auth()->user();
+
+        // 自分の商品は購入できない
+        if ($item->user_id === $user->id) {
+            return redirect('/item/' . $item_id);
+        }
+
         $address = $user->addresses()->latest()->first();
 
         if (!$address && ($user->postal_code || $user->address)) {

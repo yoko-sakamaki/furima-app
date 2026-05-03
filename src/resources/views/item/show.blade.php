@@ -40,7 +40,9 @@
             <div class="item-detail__purchase">
                 @if(!$item->is_sold)
                     @auth
-                        <a href="/purchase/{{ $item->id }}" class="btn-primary">購入手続きへ</a>
+                        @if(auth()->id() !== $item->user_id)
+                            <a href="/purchase/{{ $item->id }}" class="btn-primary">購入手続きへ</a>
+                        @endif
                     @else
                         <a href="/login" class="btn-primary">購入手続きへ</a>
                     @endauth
