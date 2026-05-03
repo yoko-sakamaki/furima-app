@@ -12,7 +12,7 @@
         @csrf
 
         <div class="profile__image-group">
-            <div class="profile__image-preview">
+            <div class="profile__image-preview" id="imagePreview">
                 @if($user->profile_image)
                     <img src="{{ asset('storage/' . $user->profile_image) }}" alt="プロフィール画像">
                 @else
@@ -55,4 +55,17 @@
         <button class="btn-primary" type="submit">更新する</button>
     </form>
 </div>
+
+<script>
+document.getElementById('profile_image').addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById('imagePreview');
+            preview.innerHTML = `<img src="${e.target.result}" alt="プロフィール画像" style="width:150px;height:150px;border-radius:50%;object-fit:cover;">`;
+        };
+        reader.readAsDataURL(this.files[0]);
+    }
+});
+</script>
 @endsection
