@@ -75,9 +75,9 @@
 .mypage__grid .item-card__image {
     width: 290px;
     height: 280px;
-    overflow: hidden;
     border-radius: 4px;
     background: #f0f0f0;
+    position: relative;
 }
 
 .mypage__grid .item-card__image img {

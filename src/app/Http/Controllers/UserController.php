@@ -10,7 +10,7 @@ class UserController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $sellingItems = $user->items()->where('is_sold', false)->get();
+        $sellingItems = $user->items()->get();
         $purchasedItems = $user->purchases()->with('item')->get();
 
         return view('user.mypage', compact('user', 'sellingItems', 'purchasedItems'));
