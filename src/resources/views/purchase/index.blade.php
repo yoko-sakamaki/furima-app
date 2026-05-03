@@ -6,23 +6,19 @@
 
 @section('content')
 <div class="purchase">
-    <h1 class="purchase__title">商品の購入</h1>
-
     <form action="/purchase/{{ $item->id }}" method="POST">
         @csrf
-
         <div class="purchase__layout">
             <div class="purchase__left">
                 <div class="purchase__item">
                     <div class="purchase__item-image">
-                        <img src="{{ $item->image }}" alt="{{ $item->name }}">
+                        <img src="{{ $item->image && !str_starts_with($item->image, 'http') ? asset('storage/' . $item->image) : $item->image }}" alt="{{ $item->name }}">
                     </div>
                     <div class="purchase__item-info">
                         <p class="purchase__item-name">{{ $item->name }}</p>
                         <p class="purchase__item-price">¥{{ number_format($item->price) }}</p>
                     </div>
                 </div>
-
                 <div class="purchase__section">
                     <h2 class="purchase__section-title">支払い方法</h2>
                     <div class="purchase__select-wrapper">
@@ -36,7 +32,6 @@
                         <p class="purchase__error">{{ $message }}</p>
                     @enderror
                 </div>
-
                 <div class="purchase__section">
                     <div class="purchase__section-header">
                         <h2 class="purchase__section-title">配送先</h2>
@@ -56,16 +51,15 @@
                     @endif
                 </div>
             </div>
-
             <div class="purchase__right">
                 <div class="purchase__summary">
                     <div class="purchase__summary-row">
                         <span>商品代金</span>
-                        <span>¥{{ number_format($item->price) }}</span>
+                        <p>¥{{ number_format($item->price) }}</p>
                     </div>
                     <div class="purchase__summary-row">
                         <span>支払い方法</span>
-                        <span id="paymentMethodLabel">-</span>
+                        <p id="paymentMethodLabel">-</p>
                     </div>
                 </div>
                 <button type="submit" class="btn-primary">購入する</button>

@@ -5,34 +5,34 @@
 @endsection
 
 @section('content')
-<div class="purchase">
-    <h1 class="purchase__title">住所の変更</h1>
+<div class="form-wrapper">
+    <h1 class="form-title">住所の変更</h1>
 
     <form action="/purchase/address/{{ $item_id }}" method="POST">
         @csrf
 
-        <div class="purchase__form-group">
-            <label class="purchase__label">郵便番号</label>
-            <input class="purchase__input" type="text" name="postal_code"
+        <div class="form-group">
+            <label class="form-label">郵便番号</label>
+            <input class="form-input" type="text" name="postal_code"
                 value="{{ old('postal_code', $address->postal_code ?? '') }}"
                 placeholder="123-4567">
             @error('postal_code')
-                <p class="purchase__error">{{ $message }}</p>
+                <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="purchase__form-group">
-            <label class="purchase__label">住所</label>
-            <input class="purchase__input" type="text" name="address"
+        <div class="form-group">
+            <label class="form-label">住所</label>
+            <input class="form-input" type="text" name="address"
                 value="{{ old('address', $address->address ?? '') }}">
             @error('address')
-                <p class="purchase__error">{{ $message }}</p>
+                <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="purchase__form-group">
-            <label class="purchase__label">建物名</label>
-            <input class="purchase__input" type="text" name="building"
+        <div class="form-group">
+            <label class="form-label">建物名</label>
+            <input class="form-input" type="text" name="building"
                 value="{{ old('building', $address->building ?? '') }}">
         </div>
 

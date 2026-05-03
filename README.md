@@ -53,12 +53,16 @@ php artisan migrate:fresh --seed
 
 ## 動作確認用ログイン情報
 
-### 出品者アカウント
+### 出品者アカウント（自分の出品が見えない）
 - メールアドレス: test@example.com
 - パスワード: password123
 
-### 購入者アカウント
+### 購入者アカウント（全商品が見える）
 - メールアドレス: test2@example.com
+- パスワード: password123
+
+### シーダー出品者アカウント
+- メールアドレス: test3@example.com
 - パスワード: password123
 
 ## 確認手順

@@ -5,39 +5,30 @@
 @endsection
 
 @section('content')
-<div class="auth">
-    <h1 class="auth__title">ログイン</h1>
+<div class="form-wrapper">
+    <h1 class="form-title">ログイン</h1>
 
-    <form class="auth__form" action="/login" method="POST">
+    <form action="/login" method="POST">
         @csrf
 
-        <div class="auth__form-group">
-            <label class="auth__label">メールアドレス</label>
-            <input
-                class="auth__input"
-                type="email"
-                name="email"
-                value="{{ old('email') }}"
-            >
+        <div class="form-group">
+            <label class="form-label">メールアドレス</label>
+            <input class="form-input" type="email" name="email" value="{{ old('email') }}">
             @error('email')
-                <p class="auth__error">{{ $message }}</p>
+                <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="auth__form-group">
-            <label class="auth__label">パスワード</label>
-            <input
-                class="auth__input"
-                type="password"
-                name="password"
-            >
+        <div class="form-group">
+            <label class="form-label">パスワード</label>
+            <input class="form-input" type="password" name="password">
             @error('password')
-                <p class="auth__error">{{ $message }}</p>
+                <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
 
         @if(session('status') == 'failed' || $errors->has('email'))
-            <p class="auth__error">ログイン情報が登録されていません</p>
+            <p class="form-error">ログイン情報が登録されていません</p>
         @endif
 
         <button class="btn-primary" type="submit">ログインする</button>

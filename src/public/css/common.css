@@ -1,81 +1,161 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-size: var(--font-size-base);
-  color: var(--color-text);
-  background: var(--color-bg);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background: var(--color-bg);
 }
 
 /* ヘッダー */
 .header {
-  background: var(--color-text);
-  padding: 16px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    background: var(--color-text);
+    height: 80px;
+    padding: 0 26px 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 96px;
 }
 
 .header__logo {
-  color: var(--color-white);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0px;
+}
+
+.header__search {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+}
+
+.header__search form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    padding: 0;
 }
 
 .header__search input {
-  padding: 10px 16px;
-  width: 400px;
-  border: none;
-  border-radius: 4px;
-  font-size: var(--font-size-base);
+    padding: 10px 16px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    font-size: var(--font-size-base);
 }
 
+
 .header__nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
 }
 
 .header__nav-link {
-  color: var(--color-white);
-  text-decoration: none;
-  font-size: var(--font-size-base);
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: var(--font-size-base);
 }
 
 .header__nav-button {
-  background: none;
-  border: none;
-  color: var(--color-white);
-  font-size: var(--font-size-base);
-  cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+}
+.header__nav form {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
+/* ボタン */
 .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-white);
-  border: none;
-  border-radius: var(--btn-radius);
-  padding: 12px 24px;
-  font-size: var(--font-size-base);
-  cursor: pointer;
-  width: 100%;
+    display: block;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--btn-radius);
+    padding: 12px 24px;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
 }
 
 .btn-outline {
-  background: var(--color-white);
-  color: var(--color-text);
-  border: 2px solid var(--color-text);
-  border-radius: var(--btn-radius);
-  padding: 10px 24px;
-  font-size: var(--font-size-base);
-  cursor: pointer;
+    display: inline-block;
+    font-size: var(--font-size-base);
+    padding: 10px 24px;
+    background: var(--color-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-sell {
+    background: var(--color-white);
+    color: var(--color-text);
+    border: none;
+    border-radius: var(--btn-radius);
+    padding: 10px 26px 10px 24px;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .text-link {
-  color: var(--color-link);
-  text-decoration: none;
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+/* フォーム共通 */
+.form-wrapper {
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 0;
+}
+
+.form-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 60px;
+}
+
+.form-label {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: var(--font-size-base);
+}
+
+.form-error {
+    color: var(--color-primary);
+    font-size: 14px;
+    margin-top: 4px;
 }
