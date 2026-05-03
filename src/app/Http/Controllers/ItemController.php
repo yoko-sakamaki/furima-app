@@ -25,8 +25,8 @@ class ItemController extends Controller
                     return !$search || str_contains($item->name, $search);
                 });
         } elseif ($tab === 'mylist' && !auth()->check()) {
-            // 未ログイン：マイリストは空
-            $items = collect();
+            // 未ログイン：ログインページへリダイレクト
+            return redirect('/login');
         } else {
             // おすすめタブ：全商品（自分の出品除外）
             $items = Item::query()

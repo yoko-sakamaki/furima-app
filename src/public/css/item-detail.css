@@ -44,6 +44,7 @@
 .item-detail__price span {
     font-size: 26px;
     font-weight: normal;
+    padding-right:4px;
 }
 
 .item-detail__actions {

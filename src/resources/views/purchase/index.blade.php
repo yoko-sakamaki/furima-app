@@ -35,7 +35,13 @@
                 <div class="purchase__section">
                     <div class="purchase__section-header">
                         <h2 class="purchase__section-title">配送先</h2>
-                        <a href="/purchase/address/{{ $item->id }}" class="purchase__address-link">変更する</a>
+                        <a href="/purchase/address/{{ $item->id }}" class="purchase__address-link">
+                            @if($address)
+                                変更する
+                            @else
+                                登録する
+                            @endif
+                        </a>
                     </div>
                     @if($address)
                         <div class="purchase__address">
@@ -47,18 +53,17 @@
                         </div>
                     @else
                         <p class="purchase__no-address">配送先が登録されていません</p>
-                        <a href="/purchase/address/{{ $item->id }}" class="purchase__address-link">住所を登録する</a>
                     @endif
                 </div>
             </div>
             <div class="purchase__right">
                 <div class="purchase__summary">
                     <div class="purchase__summary-row">
-                        <span>商品代金</span>
-                        <p>¥{{ number_format($item->price) }}</p>
+                        <h3>商品代金</h3>
+                        <p><span>¥</span>{{ number_format($item->price) }}</p>
                     </div>
                     <div class="purchase__summary-row">
-                        <span>支払い方法</span>
+                        <h3>支払い方法</h3>
                         <p id="paymentMethodLabel">-</p>
                     </div>
                 </div>

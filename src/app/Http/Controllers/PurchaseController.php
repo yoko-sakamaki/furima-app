@@ -15,6 +15,15 @@ class PurchaseController extends Controller
         $user = auth()->user();
         $address = $user->addresses()->latest()->first();
 
+        // addressesテーブルに住所がなければユーザーのプロフィール住所を使う
+        if (!$address && ($user->postal_code || $user->address)) {
+            $address = (object)[
+                'postal_code' => $user->postal_code,
+                'address' => $user->address,
+                'building' => $user->building,
+            ];
+        }
+
         return view('purchase.index', compact('item', 'user', 'address'));
     }
 
@@ -40,6 +49,14 @@ class PurchaseController extends Controller
     {
         $user = auth()->user();
         $address = $user->addresses()->latest()->first();
+
+        if (!$address && ($user->postal_code || $user->address)) {
+            $address = (object)[
+                'postal_code' => $user->postal_code,
+                'address' => $user->address,
+                'building' => $user->building,
+            ];
+        }
 
         return view('purchase.address', compact('item_id', 'address'));
     }
