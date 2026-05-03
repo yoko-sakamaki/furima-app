@@ -43,7 +43,11 @@
                             @endif
                         </a>
                     </div>
+                    @error('address')
+                        <p class="purchase__error">{{ $message }}</p>
+                    @enderror
                     @if($address)
+                        <input type="hidden" name="address_id" value="{{ $address->id ?? '' }}">
                         <div class="purchase__address">
                             <p>〒{{ $address->postal_code }}</p>
                             <p>{{ $address->address }}</p>

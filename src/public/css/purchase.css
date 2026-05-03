@@ -140,5 +140,5 @@
 .purchase__error {
     color: var(--color-primary);
     font-size: 16px;
-    margin-top: 4px;
+    margin: 20px 0;
 }

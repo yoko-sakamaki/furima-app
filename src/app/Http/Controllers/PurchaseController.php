@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Address;
-use App\Http\Requests\PurchaseRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddressRequest;
 
 class PurchaseController extends Controller
 {
@@ -15,7 +15,6 @@ class PurchaseController extends Controller
         $user = auth()->user();
         $address = $user->addresses()->latest()->first();
 
-        // addressesテーブルに住所がなければユーザーのプロフィール住所を使う
         if (!$address && ($user->postal_code || $user->address)) {
             $address = (object)[
                 'postal_code' => $user->postal_code,
@@ -27,12 +26,26 @@ class PurchaseController extends Controller
         return view('purchase.index', compact('item', 'user', 'address'));
     }
 
-    public function store(PurchaseRequest $request, $item_id)
+    public function store(Request $request, $item_id)
     {
-        $item = Item::findOrFail($item_id);
         $user = auth()->user();
-
         $address = $user->addresses()->latest()->first();
+
+        $errors = [];
+
+        if (!$request->payment_method) {
+            $errors['payment_method'] = '支払い方法を選択してください';
+        }
+
+        if (!$address && !$user->postal_code) {
+            $errors['address'] = '配送先を登録してください';
+        }
+
+        if (!empty($errors)) {
+            return redirect('/purchase/' . $item_id)->withErrors($errors);
+        }
+
+        $item = Item::findOrFail($item_id);
 
         $purchase = $user->purchases()->create([
             'item_id' => $item_id,
@@ -61,7 +74,7 @@ class PurchaseController extends Controller
         return view('purchase.address', compact('item_id', 'address'));
     }
 
-    public function updateAddress(\App\Http\Requests\AddressRequest $request, $item_id)
+    public function updateAddress(AddressRequest $request, $item_id)
     {
         $user = auth()->user();
 
