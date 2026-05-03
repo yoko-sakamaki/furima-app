@@ -10,16 +10,20 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            ['name' => 'メンズ'],
+            ['name' => 'ファッション'],
+            ['name' => '家電'],
+            ['name' => 'インテリア'],
             ['name' => 'レディース'],
-            ['name' => 'キッズ'],
-            ['name' => 'インテリア/住まい/日用品'],
-            ['name' => '本/音楽/ゲーム'],
-            ['name' => 'おもちゃ/ホビー/グッズ'],
-            ['name' => '家電/スマホ/カメラ'],
-            ['name' => 'スポーツ/レジャー'],
+            ['name' => 'メンズ'],
+            ['name' => 'コスメ'],
+            ['name' => '本'],
+            ['name' => 'ゲーム'],
+            ['name' => 'スポーツ'],
+            ['name' => 'キッチン'],
             ['name' => 'ハンドメイド'],
-            ['name' => 'その他'],
+            ['name' => 'アクセサリー'],
+            ['name' => 'おもちゃ'],
+            ['name' => 'ベビー・キッズ'],
         ];
 
         DB::table('categories')->insert($categories);

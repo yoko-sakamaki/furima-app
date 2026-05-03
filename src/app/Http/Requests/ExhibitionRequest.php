@@ -19,7 +19,7 @@ class ExhibitionRequest extends FormRequest
             'condition_id' => ['required'],
             'name' => ['required', 'string'],
             'description' => ['required', 'string', 'max:255'],
-            'price' => ['required', 'integer', 'min:0'],
+            'price' => ['required', 'integer', 'min:0', 'max:9999999'],
         ];
     }
 
@@ -35,6 +35,7 @@ class ExhibitionRequest extends FormRequest
             'description.max' => '商品の説明は255文字以内で入力してください',
             'price.required' => '販売価格を入力してください',
             'price.min' => '販売価格は0円以上で入力してください',
+            'price.max' => '販売価格は9,999,999円以下で入力してください',
         ];
     }
 }

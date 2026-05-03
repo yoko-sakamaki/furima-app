@@ -1,7 +1,7 @@
 .mypage {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 40px;
+    max-width: 1374px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .mypage__profile {
@@ -9,6 +9,7 @@
     align-items: center;
     gap: 32px;
     margin-bottom: 40px;
+    padding: 40px 40px 0;
 }
 
 .mypage__profile-image img,
@@ -33,51 +34,65 @@
     margin-bottom: 0;
 }
 
+.mypage__tabs-wrapper {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 40px;
+}
+
 .mypage__tabs {
     display: flex;
     gap: 40px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 40px;
+    max-width: 1374px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 .mypage__tab {
     padding: 16px 0;
     text-decoration: none;
     color: var(--color-text-muted);
-    font-size: var(--font-size-base);
+    font-size: 24px;
 }
 
 .mypage__tab--active {
     color: var(--color-tab-active);
-    border-bottom: 2px solid var(--color-tab-active);
+    font-weight: bold;
 }
 
-.item-list__grid {
+.mypage__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, 290px);
+    gap: 70px;
+    padding: 0 40px;
 }
 
-.item-card {
+.mypage__grid .item-card {
+    width: 290px;
     text-decoration: none;
     color: var(--color-text);
 }
 
-.item-card__image {
-    position: relative;
-    aspect-ratio: 1;
-    background: #f0f0f0;
-    border-radius: 4px;
+.mypage__grid .item-card__image {
+    width: 290px;
+    height: 280px;
     overflow: hidden;
+    border-radius: 4px;
+    background: #f0f0f0;
 }
 
-.item-card__image img {
+.mypage__grid .item-card__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.item-card__name {
+.mypage__grid .item-card__name {
     margin-top: 8px;
-    font-size: 14px;
+    font-size: 25px;
 }
+
+.mypage__grid .item-card__name{
+    color: var(--color-text);
+    text-decoration: none;
+}
+

@@ -16,6 +16,7 @@ class ItemController extends Controller
         $tab = $request->input('tab');
 
         if ($tab === 'mylist' && auth()->check()) {
+            // ログイン済み：いいねした商品を表示
             $items = auth()->user()->likes()
                 ->with('item')
                 ->get()
@@ -23,7 +24,11 @@ class ItemController extends Controller
                 ->filter(function ($item) use ($search) {
                     return !$search || str_contains($item->name, $search);
                 });
+        } elseif ($tab === 'mylist' && !auth()->check()) {
+            // 未ログイン：マイリストは空
+            $items = collect();
         } else {
+            // おすすめタブ：全商品（自分の出品除外）
             $items = Item::query()
                 ->when($search, function ($query) use ($search) {
                     return $query->where('name', 'like', '%' . $search . '%');
