@@ -78,7 +78,6 @@ class MyListTest extends TestCase
     public function test_mylist_is_empty_for_guest()
     {
         $response = $this->get('/?tab=mylist');
-        $response->assertStatus(200);
-        $response->assertDontSee('テスト商品');
+        $response->assertRedirect('/login');
     }
 }
