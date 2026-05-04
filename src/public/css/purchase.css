@@ -123,8 +123,14 @@
     font-size: 24px;
 }
 
-.purchase__summary-row span {
+.purchase__summary-row h3 {
     font-size: 20px;
+    font-weight: normal;
+}
+
+.purchase__summary-row span:first-child {
+    font-size: 18px;
+    padding-right:6px;
 }
 
 .purchase__summary-row:last-child {
@@ -134,5 +140,5 @@
 .purchase__error {
     color: var(--color-primary);
     font-size: 16px;
-    margin-top: 4px;
+    margin: 20px 0;
 }

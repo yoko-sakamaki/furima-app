@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/sell.css') }}">
+<link rel="stylesheet" href="{{ asset('css/sell.css') }}">
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
                         onchange="previewImage(this)">
                 </label>
                 @error('image')
-                    <p class="sell__error">{{ $message }}</p>
+                <p class="sell__error">{{ $message }}</p>
                 @enderror
             </div>
         </div>
@@ -34,16 +34,16 @@
                 <label class="sell__label">カテゴリー</label>
                 <div class="sell__categories">
                     @foreach($categories as $category)
-                        <label class="sell__category-label">
-                            <input type="checkbox" name="categories[]"
-                                value="{{ $category->id }}"
-                                {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
-                            <span>{{ $category->name }}</span>
-                        </label>
+                    <label class="sell__category-label">
+                        <input type="checkbox" name="categories[]"
+                            value="{{ $category->id }}"
+                            {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
+                        <span>{{ $category->name }}</span>
+                    </label>
                     @endforeach
                 </div>
                 @error('categories')
-                    <p class="sell__error">{{ $message }}</p>
+                <p class="sell__error">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -53,15 +53,15 @@
                     <select name="condition_id" class="sell__select">
                         <option value="">選択してください</option>
                         @foreach($conditions as $condition)
-                            <option value="{{ $condition->id }}"
-                                {{ old('condition_id') == $condition->id ? 'selected' : '' }}>
-                                {{ $condition->name }}
-                            </option>
+                        <option value="{{ $condition->id }}"
+                            {{ old('condition_id') == $condition->id ? 'selected' : '' }}>
+                            {{ $condition->name }}
+                        </option>
                         @endforeach
                     </select>
                 </div>
                 @error('condition_id')
-                    <p class="sell__error">{{ $message }}</p>
+                <p class="sell__error">{{ $message }}</p>
                 @enderror
             </div>
         </div>
@@ -73,7 +73,7 @@
                 <label class="sell__label">商品名</label>
                 <input class="sell__input" type="text" name="name" value="{{ old('name') }}">
                 @error('name')
-                    <p class="sell__error">{{ $message }}</p>
+                <p class="sell__error">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -86,7 +86,7 @@
                 <label class="sell__label">商品の説明</label>
                 <textarea class="sell__textarea" name="description">{{ old('description') }}</textarea>
                 @error('description')
-                    <p class="sell__error">{{ $message }}</p>
+                <p class="sell__error">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -97,7 +97,7 @@
                     <input class="sell__price-field" type="number" name="price" value="{{ old('price') }}" min="0">
                 </div>
                 @error('price')
-                    <p class="sell__error">{{ $message }}</p>
+                <p class="sell__error">{{ $message }}</p>
                 @enderror
             </div>
         </div>
@@ -107,15 +107,15 @@
 </div>
 
 <script>
-function previewImage(input) {
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const preview = document.getElementById('imagePreview');
-            preview.innerHTML = `<img src="${e.target.result}" alt="プレビュー">`;
-        };
-        reader.readAsDataURL(input.files[0]);
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById('imagePreview');
+                preview.innerHTML = `<img src="${e.target.result}" alt="プレビュー">`;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
     }
-}
 </script>
 @endsection

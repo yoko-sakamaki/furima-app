@@ -55,7 +55,7 @@ class PurchaseTest extends TestCase
             'payment_method' => 'convenience',
         ]);
 
-        $response->assertRedirect('/mypage');
+        $response->assertRedirect('/');
         $this->assertDatabaseHas('purchases', [
             'user_id' => $buyer->id,
             'item_id' => $item->id,
