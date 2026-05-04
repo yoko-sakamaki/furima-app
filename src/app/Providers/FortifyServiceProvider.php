@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Actions\Fortify\CreateNewUser;
-use App\Http\Requests\RegisterRequest;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -14,7 +13,6 @@ class FortifyServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        //
     }
 
     public function boot()
@@ -34,7 +32,6 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(10)->by($email . $request->ip());
         });
 
-        // 登録後はプロフィール設定画面へ
         Fortify::redirects('register', '/email/verify');
 
         Fortify::verifyEmailView(function () {
