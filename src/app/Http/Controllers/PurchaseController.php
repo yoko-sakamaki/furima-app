@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddressRequest;
+use Stripe\Stripe;
+use Stripe\Checkout\Session;
 
 class PurchaseController extends Controller
 {
@@ -13,7 +15,6 @@ class PurchaseController extends Controller
         $item = Item::findOrFail($item_id);
         $user = auth()->user();
 
-        // 自分の商品は購入できない
         if ($item->user_id === $user->id) {
             return redirect('/item/' . $item_id);
         }
@@ -52,7 +53,36 @@ class PurchaseController extends Controller
 
         $item = Item::findOrFail($item_id);
 
-        $purchase = $user->purchases()->create([
+        // Stripe決済セッションを作成
+        Stripe::setApiKey(config('services.stripe.secret'));
+
+        $session = Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'jpy',
+                    'product_data' => [
+                        'name' => $item->name,
+                    ],
+                    'unit_amount' => $item->price,
+                ],
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => url('/purchase/' . $item_id . '/success') . '?session_id={CHECKOUT_SESSION_ID}&payment_method=' . $request->payment_method,
+            'cancel_url' => url('/purchase/' . $item_id),
+        ]);
+
+        return redirect($session->url);
+    }
+
+    public function success(Request $request, $item_id)
+    {
+        $user = auth()->user();
+        $address = $user->addresses()->latest()->first();
+        $item = Item::findOrFail($item_id);
+
+        $user->purchases()->create([
             'item_id' => $item_id,
             'address_id' => $address ? $address->id : null,
             'payment_method' => $request->payment_method,
