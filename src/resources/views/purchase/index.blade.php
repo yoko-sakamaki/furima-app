@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="purchase">
+    <h1 class="sr-only">商品の購入</h1>
     <form action="/purchase/{{ $item->id }}" method="POST">
         @csrf
         <div class="purchase__layout">
