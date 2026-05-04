@@ -20,6 +20,7 @@ class UserProfileTest extends TestCase
             'name' => 'テストユーザー',
             'email' => 'test@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $response = $this->actingAs($user)->get('/mypage');
@@ -36,6 +37,7 @@ class UserProfileTest extends TestCase
             'password' => Hash::make('password123'),
             'postal_code' => '123-4567',
             'address' => 'テスト住所',
+            'email_verified_at' => now(),
         ]);
 
         $response = $this->actingAs($user)->get('/mypage/profile');
