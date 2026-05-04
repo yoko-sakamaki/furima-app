@@ -19,7 +19,7 @@ Route::middleware('guest')->group(function () {
     })->name('login');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/mypage', [UserController::class, 'index']);
     Route::get('/mypage/profile', [UserController::class, 'edit']);
     Route::post('/mypage/profile', [UserController::class, 'update']);

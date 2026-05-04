@@ -23,6 +23,7 @@ class ExhibitionTest extends TestCase
             'name' => 'テストユーザー',
             'email' => 'test@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $condition = ConditionMaster::create(['name' => '良好']);

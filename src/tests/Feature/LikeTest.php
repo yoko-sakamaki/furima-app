@@ -35,12 +35,14 @@ class LikeTest extends TestCase
             'name' => 'テストユーザー',
             'email' => 'test@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $other = User::create([
             'name' => '他のユーザー',
             'email' => 'other@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $item = $this->createItem($other->id);
@@ -60,12 +62,14 @@ class LikeTest extends TestCase
             'name' => 'テストユーザー',
             'email' => 'test@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $other = User::create([
             'name' => '他のユーザー',
             'email' => 'other@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $item = $this->createItem($other->id);
@@ -82,12 +86,14 @@ class LikeTest extends TestCase
             'name' => 'テストユーザー',
             'email' => 'test@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $other = User::create([
             'name' => '他のユーザー',
             'email' => 'other@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $item = $this->createItem($other->id);
