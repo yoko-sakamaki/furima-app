@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/item.css') }}">
+<link rel="stylesheet" href="{{ asset('css/item.css') }}">
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@
             <div class="item-card__image">
                 <img src="{{ $item->image && !str_starts_with($item->image, 'http') ? asset('storage/' . $item->image) : $item->image }}" alt="{{ $item->name }}">
                 @if($item->is_sold)
-                    <span class="item-card__sold">Sold</span>
+                <span class="item-card__sold">Sold</span>
                 @endif
             </div>
             <p class="item-card__name">{{ $item->name }}</p>

@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/purchase.css') }}">
+<link rel="stylesheet" href="{{ asset('css/purchase.css') }}">
 @endsection
 
 @section('content')
 <div class="purchase">
+    <h1 class="sr-only">商品の購入</h1>
     <form action="/purchase/{{ $item->id }}" method="POST">
         @csrf
         <div class="purchase__layout">
@@ -29,36 +30,45 @@
                         </select>
                     </div>
                     @error('payment_method')
-                        <p class="purchase__error">{{ $message }}</p>
+                    <p class="purchase__error">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="purchase__section">
                     <div class="purchase__section-header">
                         <h2 class="purchase__section-title">配送先</h2>
-                        <a href="/purchase/address/{{ $item->id }}" class="purchase__address-link">変更する</a>
-                    </div>
-                    @if($address)
-                        <div class="purchase__address">
-                            <p>〒{{ $address->postal_code }}</p>
-                            <p>{{ $address->address }}</p>
-                            @if($address->building)
-                                <p>{{ $address->building }}</p>
+                        <a href="/purchase/address/{{ $item->id }}" class="purchase__address-link">
+                            @if($address)
+                            変更する
+                            @else
+                            登録する
                             @endif
-                        </div>
+                        </a>
+                    </div>
+                    @error('address')
+                    <p class="purchase__error">{{ $message }}</p>
+                    @enderror
+                    @if($address)
+                    <input type="hidden" name="address_id" value="{{ $address->id ?? '' }}">
+                    <div class="purchase__address">
+                        <p>〒{{ $address->postal_code }}</p>
+                        <p>{{ $address->address }}</p>
+                        @if($address->building)
+                        <p>{{ $address->building }}</p>
+                        @endif
+                    </div>
                     @else
-                        <p class="purchase__no-address">配送先が登録されていません</p>
-                        <a href="/purchase/address/{{ $item->id }}" class="purchase__address-link">住所を登録する</a>
+                    <p class="purchase__no-address">配送先が登録されていません</p>
                     @endif
                 </div>
             </div>
             <div class="purchase__right">
                 <div class="purchase__summary">
                     <div class="purchase__summary-row">
-                        <span>商品代金</span>
-                        <p>¥{{ number_format($item->price) }}</p>
+                        <h3>商品代金</h3>
+                        <p><span>¥</span>{{ number_format($item->price) }}</p>
                     </div>
                     <div class="purchase__summary-row">
-                        <span>支払い方法</span>
+                        <h3>支払い方法</h3>
                         <p id="paymentMethodLabel">-</p>
                     </div>
                 </div>
@@ -69,14 +79,14 @@
 </div>
 
 <script>
-const select = document.getElementById('paymentSelect');
-const label = document.getElementById('paymentMethodLabel');
-const options = {
-    'convenience': 'コンビニ払い',
-    'card': 'カード払い'
-};
-select.addEventListener('change', function() {
-    label.textContent = options[this.value] || '-';
-});
+    const select = document.getElementById('paymentSelect');
+    const label = document.getElementById('paymentMethodLabel');
+    const options = {
+        'convenience': 'コンビニ払い',
+        'card': 'カード払い'
+    };
+    select.addEventListener('change', function() {
+        label.textContent = options[this.value] || '-';
+    });
 </script>
 @endsection
