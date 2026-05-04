@@ -49,6 +49,7 @@ class ItemSearchTest extends TestCase
     public function test_search_keyword_is_preserved_in_mylist()
     {
         $response = $this->get('/?search=腕時計&tab=mylist');
-        $response->assertRedirect('/login');
+        $response->assertStatus(200);
+        $response->assertSee('腕時計');
     }
 }
