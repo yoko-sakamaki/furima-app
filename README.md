@@ -7,8 +7,8 @@
 - **商品一覧（トップ）**: http://localhost/
 - **ログイン**: http://localhost/login
 - **会員登録**: http://localhost/register
-- **データベース管理 (phpMyAdmin)**: http://localhost:8080/
 - **メール認証**: http://localhost:8025
+- **データベース管理 (phpMyAdmin)**: http://localhost:8080/
 
 
 ## 使用技術（実行環境）
@@ -46,10 +46,15 @@ cp .env.example .env
 # 3. アプリケーションキーの生成
 php artisan key:generate
 
-# 4. ストレージのシンボリックリンク作成（商品画像・プロフィール画像用）
+# 4. StripeのAPIキーを.envに設定
+# https://dashboard.stripe.com/test/apikeys からテスト用APIキーを取得して設定
+# STRIPE_KEY=pk_test_...
+# STRIPE_SECRET=sk_test_...
+
+# 5. ストレージのシンボリックリンク作成
 php artisan storage:link
 
-# 5. データベースのマイグレーション及びシーディング
+# 6. データベースのマイグレーション及びシーディング
 php artisan migrate:fresh --seed
 ```
 
@@ -66,7 +71,8 @@ php artisan migrate:fresh --seed
 ## 確認手順
 
 ### 1. 会員登録・ログイン・ログアウト
-1. `/register`で新規登録
+1. `/register`で新規登録後、メール認証を完了してください
+   - `http://localhost:8025`でmailhogを開き、届いたメールの「Verify Email Address」を押す
 2. `/login`でログイン（test@example.com / password123）
 3. ヘッダーの「ログアウト」でログアウト
 
@@ -83,10 +89,13 @@ php artisan migrate:fresh --seed
 ### 4. 商品購入
 1. test2@example.com / password123でログイン
 2. 商品詳細から「購入手続きへ」を押す
-3. 支払い方法を選択
+3. 支払い方法を選択（コンビニ払い or カード払い）
 4. 必要に応じて配送先を変更
 5. 「購入する」ボタンを押す
-6. マイページの「購入した商品」に表示されることを確認
+6. Stripeの決済画面に遷移するので、以下のテスト情報で決済する
+   - カード払い：カード番号 `4242 4242 4242 4242` / 有効期限 `12/34` / CVC `123`
+   - コンビニ払い：表示された番号でコンビニ払い手続き（テスト環境のため実際の支払いは不要）
+7. マイページの「購入した商品」に表示されることを確認
 
 ### 5. 商品出品
 1. test@example.com / password123でログイン
@@ -98,11 +107,6 @@ php artisan migrate:fresh --seed
 1. ログイン状態でヘッダーの「マイページ」を押す
 2. 「プロフィールを編集」を押す
 3. 情報を入力して「更新する」を押す
-
-## メール認証について
-- 会員登録後、mailhogに認証メールが送信されます
-- `http://localhost:8025`でmailhogを開き、認証メールを確認してください
-- 「Verify Email Address」ボタンを押して認証を完了してください
 
 ## ER図
 

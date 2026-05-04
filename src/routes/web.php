@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/sell', [ItemController::class, 'store']);
     Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'editAddress']);
     Route::post('/purchase/address/{item_id}', [PurchaseController::class, 'updateAddress']);
+    Route::get('/purchase/{item_id}/success', [PurchaseController::class, 'success']);
     Route::get('/purchase/{item_id}', [PurchaseController::class, 'index']);
     Route::post('/purchase/{item_id}', [PurchaseController::class, 'store']);
 });
