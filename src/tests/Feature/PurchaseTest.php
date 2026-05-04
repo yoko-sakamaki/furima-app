@@ -53,9 +53,7 @@ class PurchaseTest extends TestCase
             'address' => 'テスト住所',
         ]);
 
-        $response = $this->actingAs($buyer)->post('/purchase/' . $item->id, [
-            'payment_method' => 'convenience',
-        ]);
+        $response = $this->actingAs($buyer)->get('/purchase/' . $item->id . '/success?payment_method=convenience');
 
         $response->assertRedirect('/');
         $this->assertDatabaseHas('purchases', [
@@ -89,9 +87,7 @@ class PurchaseTest extends TestCase
             'address' => 'テスト住所',
         ]);
 
-        $this->actingAs($buyer)->post('/purchase/' . $item->id, [
-            'payment_method' => 'convenience',
-        ]);
+        $this->actingAs($buyer)->get('/purchase/' . $item->id . '/success?payment_method=convenience');
 
         $response = $this->get('/');
         $response->assertSee('Sold');
@@ -122,9 +118,7 @@ class PurchaseTest extends TestCase
             'address' => 'テスト住所',
         ]);
 
-        $this->actingAs($buyer)->post('/purchase/' . $item->id, [
-            'payment_method' => 'convenience',
-        ]);
+        $this->actingAs($buyer)->get('/purchase/' . $item->id . '/success?payment_method=convenience');
 
         $response = $this->actingAs($buyer)->get('/mypage?page=buy');
         $response->assertSee('テスト商品');
@@ -209,9 +203,7 @@ class PurchaseTest extends TestCase
             'address' => 'テスト住所',
         ]);
 
-        $this->actingAs($buyer)->post('/purchase/' . $item->id, [
-            'payment_method' => 'convenience',
-        ]);
+        $this->actingAs($buyer)->get('/purchase/' . $item->id . '/success?payment_method=convenience');
 
         $this->assertDatabaseHas('purchases', [
             'user_id' => $buyer->id,
