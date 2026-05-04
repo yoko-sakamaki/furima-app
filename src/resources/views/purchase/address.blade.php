@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/purchase.css') }}">
+<link rel="stylesheet" href="{{ asset('css/purchase.css') }}">
 @endsection
 
 @section('content')
@@ -17,7 +17,7 @@
                 value="{{ old('postal_code', $address->postal_code ?? '') }}"
                 placeholder="123-4567">
             @error('postal_code')
-                <p class="form-error">{{ $message }}</p>
+            <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
 
@@ -26,7 +26,7 @@
             <input class="form-input" type="text" name="address"
                 value="{{ old('address', $address->address ?? '') }}">
             @error('address')
-                <p class="form-error">{{ $message }}</p>
+            <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
 

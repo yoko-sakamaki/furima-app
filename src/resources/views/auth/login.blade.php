@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
             <label class="form-label">メールアドレス</label>
             <input class="form-input" type="email" name="email" value="{{ old('email') }}">
             @error('email')
-                <p class="form-error">{{ $message }}</p>
+            <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
 
@@ -23,12 +23,12 @@
             <label class="form-label">パスワード</label>
             <input class="form-input" type="password" name="password">
             @error('password')
-                <p class="form-error">{{ $message }}</p>
+            <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
 
         @if(session('status') == 'failed' || $errors->has('email'))
-            <p class="form-error">ログイン情報が登録されていません</p>
+        <p class="form-error">ログイン情報が登録されていません</p>
         @endif
 
         <button class="btn-primary" type="submit">ログインする</button>

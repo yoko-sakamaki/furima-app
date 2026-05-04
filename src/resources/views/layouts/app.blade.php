@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     @yield('css')
 </head>
+
 <body>
     <header class="header">
         <a class="header__logo" href="/">
@@ -24,14 +26,14 @@
 
         <nav class="header__nav">
             @auth
-                <form action="/logout" method="POST">
-                    @csrf
-                    <button class="header__nav-button" type="submit">ログアウト</button>
-                </form>
-                <a class="header__nav-link" href="/mypage">マイページ</a>
+            <form action="/logout" method="POST">
+                @csrf
+                <button class="header__nav-button" type="submit">ログアウト</button>
+            </form>
+            <a class="header__nav-link" href="/mypage">マイページ</a>
             @else
-                <a class="header__nav-link" href="/login">ログイン</a>
-                <a class="header__nav-link" href="/mypage">マイページ</a>
+            <a class="header__nav-link" href="/login">ログイン</a>
+            <a class="header__nav-link" href="/mypage">マイページ</a>
             @endauth
             <a href="/sell">
                 <button class="btn-sell">出品</button>
@@ -43,4 +45,5 @@
         @yield('content')
     </main>
 </body>
+
 </html>

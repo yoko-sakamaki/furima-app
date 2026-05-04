@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/purchase.css') }}">
+<link rel="stylesheet" href="{{ asset('css/purchase.css') }}">
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@
                         </select>
                     </div>
                     @error('payment_method')
-                        <p class="purchase__error">{{ $message }}</p>
+                    <p class="purchase__error">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="purchase__section">
@@ -38,26 +38,26 @@
                         <h2 class="purchase__section-title">配送先</h2>
                         <a href="/purchase/address/{{ $item->id }}" class="purchase__address-link">
                             @if($address)
-                                変更する
+                            変更する
                             @else
-                                登録する
+                            登録する
                             @endif
                         </a>
                     </div>
                     @error('address')
-                        <p class="purchase__error">{{ $message }}</p>
+                    <p class="purchase__error">{{ $message }}</p>
                     @enderror
                     @if($address)
-                        <input type="hidden" name="address_id" value="{{ $address->id ?? '' }}">
-                        <div class="purchase__address">
-                            <p>〒{{ $address->postal_code }}</p>
-                            <p>{{ $address->address }}</p>
-                            @if($address->building)
-                                <p>{{ $address->building }}</p>
-                            @endif
-                        </div>
+                    <input type="hidden" name="address_id" value="{{ $address->id ?? '' }}">
+                    <div class="purchase__address">
+                        <p>〒{{ $address->postal_code }}</p>
+                        <p>{{ $address->address }}</p>
+                        @if($address->building)
+                        <p>{{ $address->building }}</p>
+                        @endif
+                    </div>
                     @else
-                        <p class="purchase__no-address">配送先が登録されていません</p>
+                    <p class="purchase__no-address">配送先が登録されていません</p>
                     @endif
                 </div>
             </div>
@@ -79,14 +79,14 @@
 </div>
 
 <script>
-const select = document.getElementById('paymentSelect');
-const label = document.getElementById('paymentMethodLabel');
-const options = {
-    'convenience': 'コンビニ払い',
-    'card': 'カード払い'
-};
-select.addEventListener('change', function() {
-    label.textContent = options[this.value] || '-';
-});
+    const select = document.getElementById('paymentSelect');
+    const label = document.getElementById('paymentMethodLabel');
+    const options = {
+        'convenience': 'コンビニ払い',
+        'card': 'カード払い'
+    };
+    select.addEventListener('change', function() {
+        label.textContent = options[this.value] || '-';
+    });
 </script>
 @endsection

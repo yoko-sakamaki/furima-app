@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 @endsection
 
 @section('content')
@@ -17,10 +17,9 @@
                 class="auth__input"
                 type="text"
                 name="name"
-                value="{{ old('name') }}"
-            >
+                value="{{ old('name') }}">
             @error('name')
-                <p class="auth__error">{{ $message }}</p>
+            <p class="auth__error">{{ $message }}</p>
             @enderror
         </div>
 
@@ -30,10 +29,9 @@
                 class="auth__input"
                 type="email"
                 name="email"
-                value="{{ old('email') }}"
-            >
+                value="{{ old('email') }}">
             @error('email')
-                <p class="auth__error">{{ $message }}</p>
+            <p class="auth__error">{{ $message }}</p>
             @enderror
         </div>
 
@@ -42,10 +40,9 @@
             <input
                 class="auth__input"
                 type="password"
-                name="password"
-            >
+                name="password">
             @error('password')
-                <p class="auth__error">{{ $message }}</p>
+            <p class="auth__error">{{ $message }}</p>
             @enderror
         </div>
 
@@ -54,8 +51,7 @@
             <input
                 class="auth__input"
                 type="password"
-                name="password_confirmation"
-            >
+                name="password_confirmation">
         </div>
 
         <button class="btn-primary" type="submit">登録する</button>

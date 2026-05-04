@@ -60,7 +60,7 @@ class PurchaseController extends Controller
 
         $item->update(['is_sold' => true]);
 
-        return redirect('/mypage');
+        return redirect('/');
     }
 
     public function editAddress($item_id)
