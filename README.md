@@ -8,6 +8,8 @@
 - **ログイン**: http://localhost/login
 - **会員登録**: http://localhost/register
 - **データベース管理 (phpMyAdmin)**: http://localhost:8080/
+- **メール認証**: http://localhost:8025
+
 
 ## 使用技術（実行環境）
 
@@ -96,6 +98,11 @@ php artisan migrate:fresh --seed
 1. ログイン状態でヘッダーの「マイページ」を押す
 2. 「プロフィールを編集」を押す
 3. 情報を入力して「更新する」を押す
+
+## メール認証について
+- 会員登録後、mailhogに認証メールが送信されます
+- `http://localhost:8025`でmailhogを開き、認証メールを確認してください
+- 「Verify Email Address」ボタンを押して認証を完了してください
 
 ## ER図
 
