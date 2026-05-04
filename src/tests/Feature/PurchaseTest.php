@@ -35,12 +35,14 @@ class PurchaseTest extends TestCase
             'name' => '出品者',
             'email' => 'seller@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $buyer = User::create([
             'name' => '購入者',
             'email' => 'buyer@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $item = $this->createItem($seller->id);
@@ -69,12 +71,14 @@ class PurchaseTest extends TestCase
             'name' => '出品者',
             'email' => 'seller@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $buyer = User::create([
             'name' => '購入者',
             'email' => 'buyer@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $item = $this->createItem($seller->id);
@@ -100,12 +104,14 @@ class PurchaseTest extends TestCase
             'name' => '出品者',
             'email' => 'seller@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $buyer = User::create([
             'name' => '購入者',
             'email' => 'buyer@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $item = $this->createItem($seller->id);
@@ -131,12 +137,14 @@ class PurchaseTest extends TestCase
             'name' => '出品者',
             'email' => 'seller@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $buyer = User::create([
             'name' => '購入者',
             'email' => 'buyer@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $item = $this->createItem($seller->id);
@@ -153,12 +161,14 @@ class PurchaseTest extends TestCase
             'name' => '出品者',
             'email' => 'seller@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $buyer = User::create([
             'name' => '購入者',
             'email' => 'buyer@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $item = $this->createItem($seller->id);
@@ -181,12 +191,14 @@ class PurchaseTest extends TestCase
             'name' => '出品者',
             'email' => 'seller@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $buyer = User::create([
             'name' => '購入者',
             'email' => 'buyer@example.com',
             'password' => Hash::make('password123'),
+            'email_verified_at' => now(),
         ]);
 
         $item = $this->createItem($seller->id);

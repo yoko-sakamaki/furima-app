@@ -35,6 +35,10 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         // 登録後はプロフィール設定画面へ
-        Fortify::redirects('register', '/mypage/profile');
+        Fortify::redirects('register', '/email/verify');
+
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify-email');
+        });
     }
 }
