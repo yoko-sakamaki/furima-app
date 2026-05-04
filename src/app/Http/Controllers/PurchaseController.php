@@ -56,8 +56,12 @@ class PurchaseController extends Controller
         // Stripe決済セッションを作成
         Stripe::setApiKey(config('services.stripe.secret'));
 
+        $paymentMethods = $request->payment_method === 'convenience'
+            ? ['konbini']
+            : ['card'];
+
         $session = Session::create([
-            'payment_method_types' => ['card'],
+            'payment_method_types' => $paymentMethods,
             'line_items' => [[
                 'price_data' => [
                     'currency' => 'jpy',

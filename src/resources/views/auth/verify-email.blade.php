@@ -6,9 +6,11 @@
     <p>登録したメールアドレスに認証メールを送信しました。</p>
     <p>メール内の「Verify Email Address」ボタンを押して認証を完了してください。</p>
 
-    <form action="/email/verification-notification" method="POST">
+    <a href="http://localhost:8025" class="btn-primary" style="margin-top:24px; display:block; text-align:center;">認証はこちらから</a>
+
+    <form action="/email/verification-notification" method="POST" style="margin-top:16px;">
         @csrf
-        <button type="submit" class="btn-primary" style="margin-top:24px;">認証メールを再送する</button>
+        <button type="submit" class="btn-primary">認証メールを再送する</button>
     </form>
 </div>
 @endsection
